@@ -28,32 +28,38 @@ public class HomeworkTest {
 
     @Before
     public void setUp() {
-        WebDriverManager.chromedriver().setup();
-        driver = new ChromeDriver();
+     //   WebDriverManager.chromedriver().setup();
+     //   driver = new ChromeDriver();
+        WebDriverManager.firefoxdriver().setup();
+        driver = new FirefoxDriver();
         logger.info("Драйвер поднят");
     }
     @Test
     public void openPage() {
         driver.get(cfg.url());
         logger.info("Открыта страница "+cfg.url());
-        String actualTitle = driver.getTitle();
+       // String actualTitle = driver.getTitle();
+        new WebDriverWait(driver,4).until(ExpectedConditions.visibilityOfElementLocated(new By.ByCssSelector("input#7893318_7701962"))).click();
+        new WebDriverWait(driver,4).until(ExpectedConditions.visibilityOfElementLocated(new By.ByCssSelector("input#7893318_459710"))).click();
+        new WebDriverWait(driver,4).until(ExpectedConditions.visibilityOfElementLocated(new By.ByXPath("//button[text()='по цене']"))).click();
+
         //String expectedTitle = "Онлайн‑курсы для профессионалов, дистанционное обучение современным профессиям";
         //assertEquals(expectedTitle,actualTitle);
        // assertNotNull(actualTitle);
     }
 
-    @Test
+  /*  @Test
     public void checkTitle() {
         String actualTitle = driver.getTitle();
         assertNotNull(actualTitle);
         logger.info("Title не NULL на странице "+cfg.url());
-    }
+    } */
 
 
     @After
     public void setDown() {
         if (driver != null) {
-            driver.quit();
+        //    driver.quit();
         }
     }
 
