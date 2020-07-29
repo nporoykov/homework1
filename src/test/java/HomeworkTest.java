@@ -38,20 +38,24 @@ public class HomeworkTest {
         logger.info("Открыта страница "+cfg.url());
        // String actualTitle = driver.getTitle();
       //  Да, спасибо
-     //   new WebDriverWait(driver,60).until(ExpectedConditions.visibilityOfElementLocated(new By.ByXPath("//span[text()='Да, спасибо']/parent::button"))).click();
-        new WebDriverWait(driver,60).until(ExpectedConditions.visibilityOfElementLocated(new By.ByXPath("//button[@id='27903767-tab']"))).click();
-        new WebDriverWait(driver,4).until(ExpectedConditions.visibilityOfElementLocated(new By.ByXPath("//a[text()='Мобильные телефоны']"))).click();
+        try{
+            new WebDriverWait(driver,60).until(ExpectedConditions.visibilityOfElementLocated(new By.ByXPath("//span[text()='Да, спасибо']/parent::button"))).click();
+        }catch (Exception e){logger.info("нев выбора региона");}
+       // new WebDriverWait(driver,60).until(ExpectedConditions.elementToBeClickable(new By.ByXPath("//span[text()='Да, спасибо']/parent::button"))).click();
+      //  new WebDriverWait(driver,60).until(ExpectedConditions.elementToBeClickable(new By.ByXPath("//button[@id='27903767-tab']"))).click();
+     //   new WebDriverWait(driver,4).until(ExpectedConditions.visibilityOfElementLocated(new By.ByXPath("//a[text()='Мобильные телефоны']"))).click();
         new WebDriverWait(driver,60).until(ExpectedConditions.visibilityOfElementLocated(new By.ByXPath("//span[text()='HONOR']"))).click();
         new WebDriverWait(driver,4).until(ExpectedConditions.visibilityOfElementLocated(new By.ByXPath("//span[text()='Xiaomi']"))).click();
         new WebDriverWait(driver,4).until(ExpectedConditions.visibilityOfElementLocated(new By.ByXPath("//button[text()='по цене']"))).click();
+        new WebDriverWait(driver, 10).until(ExpectedConditions.invisibilityOfElementLocated(By.cssSelector("div._2LvbieS_AO._1oZmP3Lbj2")));
         // String locator = "article[6]/div[2]/div/div";
         //WebElement icon = driver.findElement(By.xpath(locator));
         //Actions actions = new Actions(driver);
         //actions.moveToElement(icon).click().build().perform();
-        String locator = "//img[contains(@alt,'Смартфон HONOR')]/parent::a";
-        Actions builder = new Actions(driver);
-        builder.moveToElement(driver.findElement(By.xpath(locator))).perform();
-        builder.moveToElement(driver.findElement(By.xpath("//img[contains(@alt,'Смартфон HONOR')]/parent::a/preceding-sibling::div/div[1]/div"))).click().perform();
+        // String locator = "//img[contains(@alt,'Смартфон HONOR')]/parent::a";
+       // Actions builder = new Actions(driver);
+       // builder.moveToElement(driver.findElement(By.xpath(locator))).perform();
+        driver.findElement(By.xpath("//img[contains(@alt,'Смартфон HONOR')]/parent::a/preceding-sibling::div/div[1]/div")).click();
 
      //   Actions action = new Actions(driver);
     //    WebElement we = driver.findElement(By.xpath(locator));
@@ -60,7 +64,11 @@ public class HomeworkTest {
 
       //  because another element <div class="_2LvbieS_AO _1oZmP3Lbj2"> obscures it
         new WebDriverWait(driver,10).until(ExpectedConditions.visibilityOfElementLocated(new By.ByXPath("//img[contains(@alt,'Смартфон HONOR')]/parent::a/preceding-sibling::div/div[1]/div"))).click();
-       // new WebDriverWait(driver,4).until(ExpectedConditions.visibilityOfElementLocated(new By.ByXPath("//article[8]/div[2]/div/div"))).click();
+        String checkString1 = new WebDriverWait(driver,10).until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[contains(text(),'Товар Смартфон HONOR')]"))).getText();
+        assertTrue(checkString1.contains("добавлен к сравнению"));
+
+
+        // new WebDriverWait(driver,4).until(ExpectedConditions.visibilityOfElementLocated(new By.ByXPath("//article[8]/div[2]/div/div"))).click();
 
       //  driver.findElement(By.xpath("//img[contains(@alt,'Смартфон HONOR')]/parent::a/preceding-sibling::div/div[1]/div")).click();
    //     /html/body/div[2]/div[6]/div[2]/div/div[1]/div/div/div/article[6]/div[2]/div[1]/div
@@ -92,7 +100,7 @@ public class HomeworkTest {
     @After
     public void setDown() {
         if (driver != null) {
-            driver.quit();
+         //   driver.quit();
         }
     }
 
