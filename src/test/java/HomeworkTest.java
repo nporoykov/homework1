@@ -6,14 +6,12 @@ import org.apache.logging.log4j.Logger;
 import org.junit.*;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
-import org.openqa.selenium.By;
-import org.openqa.selenium.Cookie;
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -29,7 +27,7 @@ public class HomeworkTest {
     @Before
     public void setUp() {
      //   WebDriverManager.chromedriver().setup();
-     //   driver = new ChromeDriver();
+     //     driver = new ChromeDriver();
         WebDriverManager.firefoxdriver().setup();
         driver = new FirefoxDriver();
         logger.info("Драйвер поднят");
@@ -39,9 +37,44 @@ public class HomeworkTest {
         driver.get(cfg.url());
         logger.info("Открыта страница "+cfg.url());
        // String actualTitle = driver.getTitle();
-        new WebDriverWait(driver,4).until(ExpectedConditions.visibilityOfElementLocated(new By.ByCssSelector("input#7893318_7701962"))).click();
-        new WebDriverWait(driver,4).until(ExpectedConditions.visibilityOfElementLocated(new By.ByCssSelector("input#7893318_459710"))).click();
+      //  Да, спасибо
+     //   new WebDriverWait(driver,60).until(ExpectedConditions.visibilityOfElementLocated(new By.ByXPath("//span[text()='Да, спасибо']/parent::button"))).click();
+        new WebDriverWait(driver,60).until(ExpectedConditions.visibilityOfElementLocated(new By.ByXPath("//button[@id='27903767-tab']"))).click();
+        new WebDriverWait(driver,4).until(ExpectedConditions.visibilityOfElementLocated(new By.ByXPath("//a[text()='Мобильные телефоны']"))).click();
+        new WebDriverWait(driver,60).until(ExpectedConditions.visibilityOfElementLocated(new By.ByXPath("//span[text()='HONOR']"))).click();
+        new WebDriverWait(driver,4).until(ExpectedConditions.visibilityOfElementLocated(new By.ByXPath("//span[text()='Xiaomi']"))).click();
         new WebDriverWait(driver,4).until(ExpectedConditions.visibilityOfElementLocated(new By.ByXPath("//button[text()='по цене']"))).click();
+        // String locator = "article[6]/div[2]/div/div";
+        //WebElement icon = driver.findElement(By.xpath(locator));
+        //Actions actions = new Actions(driver);
+        //actions.moveToElement(icon).click().build().perform();
+        String locator = "//img[contains(@alt,'Смартфон HONOR')]/parent::a";
+        Actions builder = new Actions(driver);
+        builder.moveToElement(driver.findElement(By.xpath(locator))).perform();
+        builder.moveToElement(driver.findElement(By.xpath("//img[contains(@alt,'Смартфон HONOR')]/parent::a/preceding-sibling::div/div[1]/div"))).click().perform();
+
+     //   Actions action = new Actions(driver);
+    //    WebElement we = driver.findElement(By.xpath(locator));
+    //    action.moveToElement(we).moveToElement(driver.findElement(By.xpath("//img[contains(@alt,'Смартфон HONOR')]/parent::a/preceding-sibling::div/div[1]/div"))).click().build().perform();
+
+
+      //  because another element <div class="_2LvbieS_AO _1oZmP3Lbj2"> obscures it
+        new WebDriverWait(driver,10).until(ExpectedConditions.visibilityOfElementLocated(new By.ByXPath("//img[contains(@alt,'Смартфон HONOR')]/parent::a/preceding-sibling::div/div[1]/div"))).click();
+       // new WebDriverWait(driver,4).until(ExpectedConditions.visibilityOfElementLocated(new By.ByXPath("//article[8]/div[2]/div/div"))).click();
+
+      //  driver.findElement(By.xpath("//img[contains(@alt,'Смартфон HONOR')]/parent::a/preceding-sibling::div/div[1]/div")).click();
+   //     /html/body/div[2]/div[6]/div[2]/div/div[1]/div/div/div/article[6]/div[2]/div[1]/div
+
+    ///preceding-sibling::div/div[contains(@aria-label,'избранное')]/div
+        //    driver.findElement(By.xpath("//article[6]/div[2]/div/div")).click();
+     //   Товар Смартфон HONOR 7S 1/16GB добавлен к сравнению
+    //    asser
+     //   String actualString = driver.findElement(By.xpath("//div[contains(text(),'Товар Смартфон HONOR')]")).getText();
+     //   assertTrue(actualString.contains("добавлен к сравнению"));
+      //  driver.findElement(By.xpath("//article[9]/div[2]/div/div")).click();
+
+        //      href="/product--smartfon-honor
+  //    img  alt="Смартфон HONOR 7S 1/16GB"
 
         //String expectedTitle = "Онлайн‑курсы для профессионалов, дистанционное обучение современным профессиям";
         //assertEquals(expectedTitle,actualTitle);
@@ -59,7 +92,7 @@ public class HomeworkTest {
     @After
     public void setDown() {
         if (driver != null) {
-        //    driver.quit();
+            driver.quit();
         }
     }
 
