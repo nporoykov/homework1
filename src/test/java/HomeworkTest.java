@@ -14,6 +14,8 @@ import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import static org.junit.Assert.assertThat;
+import static org.hamcrest.CoreMatchers.containsString;
 
 import java.util.concurrent.TimeUnit;
 
@@ -26,10 +28,10 @@ public class HomeworkTest {
 
     @Before
     public void setUp() {
-     //   WebDriverManager.chromedriver().setup();
-     //     driver = new ChromeDriver();
-        WebDriverManager.firefoxdriver().setup();
-        driver = new FirefoxDriver();
+        WebDriverManager.chromedriver().setup();
+          driver = new ChromeDriver();
+     //   WebDriverManager.firefoxdriver().setup();
+     //   driver = new FirefoxDriver();
         logger.info("Драйвер поднят");
     }
     @Test
@@ -56,25 +58,24 @@ public class HomeworkTest {
        // Actions builder = new Actions(driver);
       //  builder.moveToElement(driver.findElement(By.xpath(locator))).perform();
       //  driver.findElement(By.xpath("//img[contains(@alt,'Смартфон HONOR')]/parent::a/preceding-sibling::div/div[1]")).click();
-        driver.findElement(By.xpath("//article[8]/div[2]/div/div")).click();
-         new WebDriverWait(driver,10).until(ExpectedConditions.visibilityOfElementLocated(new By.ByXPath("//img[contains(@alt,'Смартфон HONOR')]/parent::a/preceding-sibling::div/div[1]/div"))).click();
-          String checkString1 = new WebDriverWait(driver,10).until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[contains(text(),'Товар Смартфон HONOR')]"))).getText();
-          assertTrue(checkString1.contains("добавлен к сравнению"));
-        driver.findElement(By.xpath("//article[5]/div[2]/div/div")).click();
-          new WebDriverWait(driver,10).until(ExpectedConditions.visibilityOfElementLocated(new By.ByXPath("//img[contains(@alt,'Смартфон HONOR')]/parent::a/preceding-sibling::div/div[1]/div"))).click();
-          String checkString2 = new WebDriverWait(driver,10).until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[contains(text(),'Товар Смартфон HONOR')]"))).getText();
-          assertTrue(checkString1.contains("добавлен к сравнению"));
+      //  driver.findElement(By.xpath("//article[8]/div[2]/div[1]/div")).click();
+       //  new WebDriverWait(driver,10).until(ExpectedConditions.elementToBeClickable(new By.ByXPath("//img[contains(@title,'Смартфон HONOR')]/parent::a/preceding-sibling::div/div[1]/div"))).click();
+    //  driver.findElement(By.xpath("//img[contains(@title,'Смартфон HONOR')]/parent::a/preceding-sibling::div/div[1]/div")).click();
+      driver.findElement(By.xpath("//a[contains(@title,'Смартфон HONOR')]/ancestor::article//div[contains(@aria-label,'сравнению')]")).click();
+      String checkString1 = new WebDriverWait(driver,10).until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[contains(text(),'Товар Смартфон HONOR')]"))).getText();
+        Assert.assertThat(checkString1, containsString("добавлен к сравнению"));
+
+      //  driver.findElement(By.xpath("//article[5]/div[2]/div[1]/div")).click();
+        driver.findElement(By.xpath("//a[contains(@title,'Смартфон Xiaomi Redmi')]/ancestor::article//div[contains(@aria-label,'сравнению')]")).click();
+     //   new WebDriverWait(driver,10).until(ExpectedConditions.visibilityOfElementLocated(new By.ByXPath("//img[contains(@title,'Смартфон Xiaomi Redmi')]/parent::a/preceding-sibling::div/div[1]/div"))).click();
+          String checkString2 = new WebDriverWait(driver,10).until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[contains(text(),'Товар Смартфон Xiaomi Redmi')]"))).getText();
+          Assert.assertThat(checkString2, containsString("добавлен к сравнению"));
 
 
      //   Actions action = new Actions(driver);
     //    WebElement we = driver.findElement(By.xpath(locator));
     //    action.moveToElement(we).moveToElement(driver.findElement(By.xpath("//img[contains(@alt,'Смартфон HONOR')]/parent::a/preceding-sibling::div/div[1]/div"))).click().build().perform();
 
-
-      //  because another element <div class="_2LvbieS_AO _1oZmP3Lbj2"> obscures it
-        new WebDriverWait(driver,10).until(ExpectedConditions.visibilityOfElementLocated(new By.ByXPath("//img[contains(@alt,'Смартфон HONOR')]/parent::a/preceding-sibling::div/div[1]/div"))).click();
-        String checkString1 = new WebDriverWait(driver,10).until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[contains(text(),'Товар Смартфон HONOR')]"))).getText();
-        assertTrue(checkString1.contains("добавлен к сравнению"));
 
 
         // new WebDriverWait(driver,4).until(ExpectedConditions.visibilityOfElementLocated(new By.ByXPath("//article[8]/div[2]/div/div"))).click();
