@@ -54,8 +54,17 @@ public class HomeworkTest {
         //actions.moveToElement(icon).click().build().perform();
         // String locator = "//img[contains(@alt,'Смартфон HONOR')]/parent::a";
        // Actions builder = new Actions(driver);
-       // builder.moveToElement(driver.findElement(By.xpath(locator))).perform();
-        driver.findElement(By.xpath("//img[contains(@alt,'Смартфон HONOR')]/parent::a/preceding-sibling::div/div[1]/div")).click();
+      //  builder.moveToElement(driver.findElement(By.xpath(locator))).perform();
+      //  driver.findElement(By.xpath("//img[contains(@alt,'Смартфон HONOR')]/parent::a/preceding-sibling::div/div[1]")).click();
+        driver.findElement(By.xpath("//article[8]/div[2]/div/div")).click();
+         new WebDriverWait(driver,10).until(ExpectedConditions.visibilityOfElementLocated(new By.ByXPath("//img[contains(@alt,'Смартфон HONOR')]/parent::a/preceding-sibling::div/div[1]/div"))).click();
+          String checkString1 = new WebDriverWait(driver,10).until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[contains(text(),'Товар Смартфон HONOR')]"))).getText();
+          assertTrue(checkString1.contains("добавлен к сравнению"));
+        driver.findElement(By.xpath("//article[5]/div[2]/div/div")).click();
+          new WebDriverWait(driver,10).until(ExpectedConditions.visibilityOfElementLocated(new By.ByXPath("//img[contains(@alt,'Смартфон HONOR')]/parent::a/preceding-sibling::div/div[1]/div"))).click();
+          String checkString2 = new WebDriverWait(driver,10).until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[contains(text(),'Товар Смартфон HONOR')]"))).getText();
+          assertTrue(checkString1.contains("добавлен к сравнению"));
+
 
      //   Actions action = new Actions(driver);
     //    WebElement we = driver.findElement(By.xpath(locator));
