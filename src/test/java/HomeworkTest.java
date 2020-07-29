@@ -67,9 +67,12 @@ public class HomeworkTest {
 
       //  driver.findElement(By.xpath("//article[5]/div[2]/div[1]/div")).click();
         driver.findElement(By.xpath("//a[contains(@title,'Смартфон Xiaomi Redmi')]/ancestor::article//div[contains(@aria-label,'сравнению')]")).click();
-     //   new WebDriverWait(driver,10).until(ExpectedConditions.visibilityOfElementLocated(new By.ByXPath("//img[contains(@title,'Смартфон Xiaomi Redmi')]/parent::a/preceding-sibling::div/div[1]/div"))).click();
+     String str2 = driver.findElement(By.xpath("//a[contains(@title,'Смартфон Xiaomi Redmi')]")).getAttribute("title").toString();
+        String fin2 = "Товар " + str2 + " добавлен к сравнению";
+        //   new WebDriverWait(driver,10).until(ExpectedConditions.visibilityOfElementLocated(new By.ByXPath("//img[contains(@title,'Смартфон Xiaomi Redmi')]/parent::a/preceding-sibling::div/div[1]/div"))).click();
           String checkString2 = new WebDriverWait(driver,10).until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[contains(text(),'Товар Смартфон Xiaomi Redmi')]"))).getText();
-          Assert.assertThat(checkString2, containsString("добавлен к сравнению"));
+        // Assert.assertThat(checkString2, containsString("добавлен к сравнению"));
+           assertEquals(fin2, checkString2);
 
 
      //   Actions action = new Actions(driver);
@@ -110,7 +113,7 @@ public class HomeworkTest {
     @After
     public void setDown() {
         if (driver != null) {
-           driver.quit();
+        //   driver.quit();
         }
     }
 
