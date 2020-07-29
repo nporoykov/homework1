@@ -110,7 +110,7 @@ public class HomeworkTest {
     @After
     public void setDown() {
         if (driver != null) {
-         //   driver.quit();
+           driver.quit();
         }
     }
 
