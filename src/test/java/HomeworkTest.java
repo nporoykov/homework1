@@ -17,6 +17,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import static org.junit.Assert.assertThat;
 import static org.hamcrest.CoreMatchers.containsString;
 
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import static org.junit.Assert.*;
@@ -28,10 +29,10 @@ public class HomeworkTest {
 
     @Before
     public void setUp() {
-        WebDriverManager.chromedriver().setup();
-          driver = new ChromeDriver();
-     //   WebDriverManager.firefoxdriver().setup();
-     //   driver = new FirefoxDriver();
+      //  WebDriverManager.chromedriver().setup();
+      //    driver = new ChromeDriver();
+        WebDriverManager.firefoxdriver().setup();
+        driver = new FirefoxDriver();
         logger.info("Драйвер поднят");
     }
     @Test
@@ -74,7 +75,17 @@ public class HomeworkTest {
         // Assert.assertThat(checkString2, containsString("добавлен к сравнению"));
            assertEquals(fin2, checkString2);
 
+          driver.findElement(By.xpath("//span[text()='Сравнить']")).click();
+          List<WebElement> smartPhones = driver.findElements((By.xpath("//img[contains(@alt,'Смартфон ')]")));
+        assertEquals(2, smartPhones.size());
 
+        driver.findElement(By.xpath("//button[text()='Все характеристики']")).click();
+        driver.findElement(By.xpath("//div[text()='Операционная система']"));
+
+        driver.findElement(By.xpath("//button[text()='Различающиеся характеристики']")).click();
+        assertEquals(0, driver.findElements(By.xpath("//div[text()='Операционная система']")).size());
+
+//<span class="_14Uuc5WvKg">Сравнить</span>
      //   Actions action = new Actions(driver);
     //    WebElement we = driver.findElement(By.xpath(locator));
     //    action.moveToElement(we).moveToElement(driver.findElement(By.xpath("//img[contains(@alt,'Смартфон HONOR')]/parent::a/preceding-sibling::div/div[1]/div"))).click().build().perform();
