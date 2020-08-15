@@ -59,18 +59,18 @@ driver.findElement(By.cssSelector(locator)).click();
 logger.info("Перешли на подстраницу логина");
       //  new WebDriverWait(driver,1).until(ExpectedConditions.elementToBeClickable(driver.findElement(By.xpath("//button[contains(text(),'Change message')]")))).click();
       //  WebElement alert1 = driver.findElement(By.xpath("//ngb-alert[@type='success' and @class='alert alert-success alert-dismissible']"));
-        String text1 = func(new WebDriverWait(driver,1).until(ExpectedConditions.elementToBeClickable(driver.findElement(By.xpath("//button[contains(text(),'Change message')]")))));
-        Thread.sleep(1000);
+   //     String text1 = func(new WebDriverWait(driver,1).until(ExpectedConditions.elementToBeClickable(driver.findElement(By.xpath("//button[contains(text(),'Change message')]")))));
+    //    Thread.sleep(1000);
       //  new WebDriverWait(driver,1).until(ExpectedConditions.elementToBeClickable(driver.findElement(By.xpath("//button[contains(text(),'Change message')]")))).click();
      //   WebElement alert2 = driver.findElement(By.xpath("//ngb-alert[@type='success' and @class='alert alert-success alert-dismissible']"));
-        String text2 = func(new WebDriverWait(driver,1).until(ExpectedConditions.elementToBeClickable(driver.findElement(By.xpath("//button[contains(text(),'Change message')]")))));;
-        assertNotEquals(text1, text2);
+    //    String text2 = func(new WebDriverWait(driver,1).until(ExpectedConditions.elementToBeClickable(driver.findElement(By.xpath("//button[contains(text(),'Change message')]")))));;
+    //    assertNotEquals(text1, text2);
 
 
 
 
 
-       /* new WebDriverWait(driver,3).until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("input.js-email-input"))).sendKeys(login);
+        new WebDriverWait(driver,3).until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("input.js-email-input"))).sendKeys(login);
         driver.findElement(By.cssSelector("input.js-psw-input")).sendKeys(pass);
         driver.findElement(By.cssSelector("div.new-input-line>button")).click();
         logger.info("Залогинились на сайте");
@@ -110,7 +110,7 @@ logger.info("Перешли на подстраницу логина");
         //  WebElement countryRF=driver.findElement(new By.ByXPath("//button[contains(text(),'Россия')]"));
         //  countryRF.click();
 
-        driver.findElement(By.cssSelector("button[name=continue]")).click(); */
+        driver.findElement(By.cssSelector("button[name=continue]")).click();
 
 
         //String actualTitle = driver.getTitle();
@@ -119,7 +119,7 @@ logger.info("Перешли на подстраницу логина");
         //assertNotNull(actualTitle);
     }
 
- /*   @Test
+    @Test
     public void checkPage(){
         //1. Открыть otus.ru
         driver.get("https://otus.ru/");
@@ -158,7 +158,7 @@ logger.info("Перешли на подстраницу логина");
         //     driver.findElement(By.cssSelector("button[title=Продвинутый (Advanced)]")).click();
         assertEquals("Продвинутый (Advanced)", driver.findElement(By.xpath("//div[3]/div[2]/div/label/div")).getText().toString());
 
-    }  */
+    }
 
    /* @Test
     public void checkTitle() {
