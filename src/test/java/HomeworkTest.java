@@ -48,15 +48,15 @@ public class HomeworkTest {
     @Test
     public void openPage() throws InterruptedException {
         //1. Открыть otus.ru
-        driver.get("https://ng-bootstrap.github.io/#/components/alert/examples");
+        driver.get("https://otus.ru");
        // driver.get(cfg.url2());
-        logger.info("Открыта страница "+"https://ng-bootstrap.github.io/#/components/alert/examples\n");
+        logger.info("Открыта страница "+"https://otus.ru\n");
        //2. Авторизоваться на сайте
-/*String login = "sajare9105@mailsecv.com";
+String login = "sajare9105@mailsecv.com";
 String pass = "Ataman777";
 String locator = "button.header2__auth";
 driver.findElement(By.cssSelector(locator)).click();
-logger.info("Перешли на подстраницу логина");*/
+logger.info("Перешли на подстраницу логина");
       //  new WebDriverWait(driver,1).until(ExpectedConditions.elementToBeClickable(driver.findElement(By.xpath("//button[contains(text(),'Change message')]")))).click();
       //  WebElement alert1 = driver.findElement(By.xpath("//ngb-alert[@type='success' and @class='alert alert-success alert-dismissible']"));
         String text1 = func(new WebDriverWait(driver,1).until(ExpectedConditions.elementToBeClickable(driver.findElement(By.xpath("//button[contains(text(),'Change message')]")))));
