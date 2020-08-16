@@ -12,4 +12,10 @@ public interface ServerConfig extends Config {
     @Key("url2")
     String url2();
 
+    @Key("login")
+    String login();
+
+    @Key("pass")
+    String pass();
+
 }
