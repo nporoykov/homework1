@@ -14,6 +14,8 @@ import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import utils.WebDriverFactory;
 
+import static org.junit.Assert.*;
+
 public class PrivateDataPage extends AbstractPage{
         private Logger logger = LogManager.getLogger(HomeworkTest.class);
         private ServerConfig cfg = ConfigFactory.create(ServerConfig.class);
@@ -30,27 +32,26 @@ public class PrivateDataPage extends AbstractPage{
         private By engButton = By.xpath("//button[contains(text(),'Продвинутый (Advanced)')]");  //локатор
         private By engButtonCont = By.cssSelector("button[name=continue]");  //локатор
 
+     /*
+        assertNotNull(new WebDriverWait(driver, 2).until(ExpectedConditions.visibilityOfElementLocated(By.id("id_fname_latin"))));
+        assertNotNull(driver.findElement(By.cssSelector("#id_lname_latin")));
+        assertNotNull(driver.findElement(By.cssSelector("input[name=date_of_birth]")));
+        assertNotNull(driver.findElement(By.cssSelector("#id_gender")));
+        // Выбор страны
+        assertNotNull(driver.findElement(By.cssSelector("div[data-slave-selector*=js-lk-cv-dependent-slave-city]")));
+        //Выбор города
+        //* driver.findElement(By.cssSelector("div[data-selected-option-class=lk-cv-block__select-option_selected]")).click();
+        //* driver.findElement(By.cssSelector("button[title=Москва]")).click();
+        assertNotNull(driver.findElement(By.xpath("//div[2]/div[2]/div/label/div")));
 
-  /*  // new WebDriverWait(driver, 2).until(ExpectedConditions.visibilityOfElementLocated(By.id("id_fname_latin"))).sendKeys("Testov");
-        driver.findElement(By.cssSelector("#id_lname_latin")).sendKeys("Testov");
-        driver.findElement(By.cssSelector("input[name=date_of_birth]")).sendKeys("07.02.1986");
-    Select dropdown = new Select(driver.findElement(By.cssSelector("#id_gender")));
-        dropdown.selectByValue("m");
-    // Выбор страны
-       driver.findElement(By.cssSelector("div[data-slave-selector*=js-lk-cv-dependent-slave-city]")).click();
-       driver.findElement(By.cssSelector("button[title=США]")).click();
-    //Выбор города
-        driver.findElement(By.xpath("//div[2]/div[2]/div/label/div")).click();
-        driver.findElement(By.xpath("//div[2]/div[2]/div/div/div/button[2]")).click();
-    //Уровень знания английского
-        driver.findElement(By.xpath("//div[3]/div[2]/div/label/div")).click();
-        driver.findElement(By.xpath("//button[contains(text(),'Продвинутый (Advanced)')]")).click();
-        driver.findElement(By.cssSelector("button[name=continue]")).click();
-*/
+        //Уровень знания английского
+        //     driver.findElement(By.cssSelector("div[data-selected-option-class*=lk-cv-block__select-option_selected]")).click();
+        //     driver.findElement(By.cssSelector("button[title=Продвинутый (Advanced)]")).click();
+        assertEquals("Продвинутый (Advanced)", driver.findElement(By.xpath("//div[3]/div[2]/div/label/div")).getText().toString());
 
+        */
 
-
-        WebDriverFactory factory = new WebDriverFactory();
+         WebDriverFactory factory = new WebDriverFactory();
 
         public PrivateDataPage(WebDriver driver) {
             super(driver);
@@ -102,4 +103,43 @@ public class PrivateDataPage extends AbstractPage{
 
         return this;
     }
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    public PrivateDataPage assertSurAndName(){
+        assertNotNull(new WebDriverWait(driver, 2).until(ExpectedConditions.visibilityOfElementLocated(fname)));
+        assertNotNull(driver.findElement(sname));
+
+        return this;
+    }
+
+    public PrivateDataPage assertBirth(){
+        assertNotNull(driver.findElement(birth));
+
+        return this;
+    }
+
+    public PrivateDataPage assertGender(){
+        assertNotNull(driver.findElement(gender));
+
+        return this;
+    }
+
+    public PrivateDataPage assertCountry(){
+        assertNotNull(driver.findElement(countryDiv));
+
+        return this;
+    }
+
+    public PrivateDataPage assertCity(){
+        assertNotNull(driver.findElement(cityDiv));
+
+        return this;
+    }
+
+    public PrivateDataPage assertEnglish(){
+        assertEquals("Продвинутый (Advanced)", driver.findElement(engDiv).getText().toString());
+
+        return this;
+    }
+
+
 }

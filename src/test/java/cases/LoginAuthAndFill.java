@@ -35,7 +35,7 @@ public class LoginAuthAndFill {
     WebDriver driver = factory.createDriver(WebDriverType.FIREFOX);
 
     @Test
-    public void githubPageObjectTest() throws InterruptedException {
+    public void loginAndAuthFill() throws InterruptedException {
         WebDriverFactory factory = new WebDriverFactory();
         LoginPage loginPage = new LoginPage(driver);
 
