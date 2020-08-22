@@ -1,10 +1,8 @@
 package pages;
 
-import config.ServerConfig;
-import org.aeonbits.owner.ConfigFactory;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -15,8 +13,6 @@ import utils.WebDriverFactory;
 
 public class LoginPage extends AbstractPage {
     private Logger logger = LogManager.getLogger(HomeworkTest.class);
-     private ServerConfig cfg = ConfigFactory.create(ServerConfig.class);
-      private final String URL = cfg.url2();
        private By loginButton =  By.cssSelector("button.header2__auth");  //локатор раздела логина
         private By accField =  By.cssSelector("input.js-email-input");  //локатор поля аккаунта логина
          private By passField =  By.cssSelector("input.js-psw-input");  //локатор поля пароля логина
@@ -28,21 +24,31 @@ public class LoginPage extends AbstractPage {
         super(driver);
     }
 
-    public LoginPage open() {
-        driver.get(URL);
+    public LoginPage open(String url) {
+        driver.get(url);
 
         return this;
     }
 
-    public void clickAuth(){
-        driver.findElement(logButton).click();
+    public LoginPage clickAuth(){
+        driver.findElement(loginButton).click();
+
+        return this;
     }
 
-    public void auth() {
-        new WebDriverWait(driver,3).until(ExpectedConditions.visibilityOfElementLocated(accField)).sendKeys(cfg.login());
-        driver.findElement(passField).sendKeys(cfg.pass());
+    public ProfilePage auth(String account, String pass) {
+        new WebDriverWait(driver,3).until(ExpectedConditions.visibilityOfElementLocated(accField)).sendKeys(account);
+        driver.findElement(passField).sendKeys(pass);
         driver.findElement(logButton).click();
+
+        return new ProfilePage(driver);
     }
+
+    /*public PrivateDataPage registrationUserSuccess(String text) {
+        auth();
+        return new PrivateDataPage(driver);
+    }*/
+
 
 
 }

@@ -53,27 +53,13 @@ String pass = "Ataman777";
 String locator = "button.header2__auth";
 driver.findElement(By.cssSelector(locator)).click();
 logger.info("Перешли на подстраницу логина");
-      //  new WebDriverWait(driver,1).until(ExpectedConditions.elementToBeClickable(driver.findElement(By.xpath("//button[contains(text(),'Change message')]")))).click();
-      //  WebElement alert1 = driver.findElement(By.xpath("//ngb-alert[@type='success' and @class='alert alert-success alert-dismissible']"));
-   //     String text1 = func(new WebDriverWait(driver,1).until(ExpectedConditions.elementToBeClickable(driver.findElement(By.xpath("//button[contains(text(),'Change message')]")))));
-    //    Thread.sleep(1000);
-      //  new WebDriverWait(driver,1).until(ExpectedConditions.elementToBeClickable(driver.findElement(By.xpath("//button[contains(text(),'Change message')]")))).click();
-     //   WebElement alert2 = driver.findElement(By.xpath("//ngb-alert[@type='success' and @class='alert alert-success alert-dismissible']"));
-    //    String text2 = func(new WebDriverWait(driver,1).until(ExpectedConditions.elementToBeClickable(driver.findElement(By.xpath("//button[contains(text(),'Change message')]")))));;
-    //    assertNotEquals(text1, text2);
-
-
-
-
 
         new WebDriverWait(driver,3).until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("input.js-email-input"))).sendKeys(login);
         driver.findElement(By.cssSelector("input.js-psw-input")).sendKeys(pass);
         driver.findElement(By.cssSelector("div.new-input-line>button")).click();
         logger.info("Залогинились на сайте");
+
 //3. Перейти в раздел о себе и заполнить поля
-       // new WebDriverWait(driver,3).until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("div.js-main.js-tabs h1")));
-       // new WebDriverWait(driver,3).until(ExpectedConditions.elementToBeClickable(By.cssSelector("div.header2-menu__item-wrapper.header2-menu__item-wrapper__username"))).click();
-       // new WebDriverWait(driver,3).until(ExpectedConditions.elementToBeClickable(By.cssSelector("b.header2-menu__dropdown-text_name"))).click();
        driver.get("https://otus.ru/lk/biography/personal/");
        logger.info("Перешли на страницу https://otus.ru/lk/biography/personal/");
 
@@ -86,33 +72,13 @@ logger.info("Перешли на подстраницу логина");
        driver.findElement(By.cssSelector("div[data-slave-selector*=js-lk-cv-dependent-slave-city]")).click();
        driver.findElement(By.cssSelector("button[title=США]")).click();
        //Выбор города
-      //* driver.findElement(By.cssSelector("div[data-selected-option-class=lk-cv-block__select-option_selected]")).click();
-      //* driver.findElement(By.cssSelector("button[title=Москва]")).click();
         driver.findElement(By.xpath("//div[2]/div[2]/div/label/div")).click();
         driver.findElement(By.xpath("//div[2]/div[2]/div/div/div/button[2]")).click();
-       // driver.findElement(By.xpath("//button[contains(@class,'lk-cv-block__select-option_selected' and contains(text(),'Продвинутый (Advanced)')])")).click();
-
-
         //Уровень знания английского
-   //     driver.findElement(By.cssSelector("div[data-selected-option-class*=lk-cv-block__select-option_selected]")).click();
-   //     driver.findElement(By.cssSelector("button[title=Продвинутый (Advanced)]")).click();
         driver.findElement(By.xpath("//div[3]/div[2]/div/label/div")).click();
-//       driver.findElement(By.xpath("//div[contains(@data-selected-option-class='lk-cv-block__select-option_selected')]")).click();
-   //     driver.findElement(By.xpath("//div[3]/div[2]/div/div/div/button[7]")).click();
         driver.findElement(By.xpath("//button[contains(text(),'Продвинутый (Advanced)')]")).click();
-
-        //WebElement country=driver.findElement(new By.ByXPath("//div[contains(@data-slave-selector, '.js-lk-cv-dependent-slave-city')]"));
-        //country.click();
-        //  WebElement countryRF=driver.findElement(new By.ByXPath("//button[contains(text(),'Россия')]"));
-        //  countryRF.click();
-
         driver.findElement(By.cssSelector("button[name=continue]")).click();
 
-
-        //String actualTitle = driver.getTitle();
-        //String expectedTitle = "Онлайн‑курсы для профессионалов, дистанционное обучение современным профессиям";
-        //assertEquals(expectedTitle,actualTitle);
-        //assertNotNull(actualTitle);
     }
 
     @Test
