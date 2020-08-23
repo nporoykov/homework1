@@ -13,14 +13,8 @@ import utils.WebDriverType;
 
 public class FillCheck extends BaseHooks{
 
-
-    private ServerConfig cfg = ConfigFactory.create(ServerConfig.class);
-   // WebDriverFactory factory = new WebDriverFactory();
-   // WebDriver driver = factory.createDriver(WebDriverType.FIREFOX);
-
     @Test
     public void fillCheck() throws InterruptedException {
-       // WebDriverFactory factory = new WebDriverFactory();
         LoginPage loginPage = new LoginPage(driver);
 
         loginPage.open(cfg.url())

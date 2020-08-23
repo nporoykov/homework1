@@ -9,15 +9,6 @@ import utils.*;
 
 public class LoginAuthAndFill extends BaseHooks{
 
- //   @BeforeClass
-   public static void callsetup(){
-                BaseHooks.setup();
-    }
-
-   // private ServerConfig cfg = ConfigFactory.create(ServerConfig.class);
-  //  WebDriverFactory factory = new WebDriverFactory();
-  //  WebDriver driver = factory.createDriver(WebDriverType.FIREFOX);
-
     @Test
     public void loginAndAuthFill() throws InterruptedException {
      //   WebDriverFactory factory = new WebDriverFactory();
@@ -42,8 +33,4 @@ public class LoginAuthAndFill extends BaseHooks{
 
     }
 
- //   @AfterClass
-    public static void callteardown(){
-        BaseHooks.teardown();
-    }
 }
