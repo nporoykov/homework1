@@ -7,18 +7,20 @@ import org.openqa.selenium.WebDriver;
 import pages.LoginPage;
 import pages.PrivateDataPage;
 import pages.ProfilePage;
+import utils.BaseHooks;
 import utils.WebDriverFactory;
 import utils.WebDriverType;
 
-public class FillCheck {
+public class FillCheck extends BaseHooks{
+
 
     private ServerConfig cfg = ConfigFactory.create(ServerConfig.class);
-    WebDriverFactory factory = new WebDriverFactory();
-    WebDriver driver = factory.createDriver(WebDriverType.FIREFOX);
+   // WebDriverFactory factory = new WebDriverFactory();
+   // WebDriver driver = factory.createDriver(WebDriverType.FIREFOX);
 
     @Test
     public void fillCheck() throws InterruptedException {
-        WebDriverFactory factory = new WebDriverFactory();
+       // WebDriverFactory factory = new WebDriverFactory();
         LoginPage loginPage = new LoginPage(driver);
 
         loginPage.open(cfg.url())
