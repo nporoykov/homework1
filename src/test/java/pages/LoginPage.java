@@ -12,13 +12,13 @@ import utils.WebDriverFactory;
 
 
 public class LoginPage extends AbstractPage {
-    private Logger logger = LogManager.getLogger(HomeworkTest.class);
+    private Logger logger = LogManager.getLogger(LoginPage.class);
        private By loginButton =  By.cssSelector("button.header2__auth");  //локатор раздела логина
         private By accField =  By.cssSelector("input.js-email-input");  //локатор поля аккаунта логина
          private By passField =  By.cssSelector("input.js-psw-input");  //локатор поля пароля логина
           private By logButton =  By.cssSelector("div.new-input-line>button");  //локатор кнопки логина
 
-    WebDriverFactory factory = new WebDriverFactory();
+  //  WebDriverFactory factory = new WebDriverFactory();
 
     public LoginPage(WebDriver driver) {
         super(driver);
@@ -26,12 +26,14 @@ public class LoginPage extends AbstractPage {
 
     public LoginPage open(String url) {
         driver.get(url);
+        logger.info("Открыта страница "+"https://otus.ru\n");
 
         return this;
     }
 
     public LoginPage clickAuth(){
         driver.findElement(loginButton).click();
+        logger.info("Перешли на подстраницу логина");
 
         return this;
     }
@@ -40,40 +42,10 @@ public class LoginPage extends AbstractPage {
         new WebDriverWait(driver,3).until(ExpectedConditions.visibilityOfElementLocated(accField)).sendKeys(account);
         driver.findElement(passField).sendKeys(pass);
         driver.findElement(logButton).click();
+        logger.info("Залогинились на сайте");
 
         return new ProfilePage(driver);
     }
-
-    /*public PrivateDataPage registrationUserSuccess(String text) {
-        auth();
-        return new PrivateDataPage(driver);
-    }*/
-
-
-
 }
 
 
-
-/*public class pages.LoginPage extends pages.AbstractPage {
-    private static final String URL = "https://github.com/";
-    private By search = By.xpath("//input[@name='q']");
-
-    public pages.LoginPage(WebDriver driver) {
-        super(driver);
-    }
-
-    public pages.LoginPage open() {
-        driver.get(URL);
-
-        return this;
-    }
-
-    public SearchPage search(String text) {
-        driver.findElement(search).sendKeys(text);
-        driver.findElement(search).sendKeys(Keys.ENTER);
-
-        return new SearchPage(driver);
-    }
-
-}*/
