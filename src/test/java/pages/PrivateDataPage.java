@@ -32,28 +32,7 @@ public class PrivateDataPage extends AbstractPage{
         private By engButton = By.xpath("//button[contains(text(),'Продвинутый (Advanced)')]");  //локатор
         private By engButtonCont = By.cssSelector("button[name=continue]");  //локатор
 
-     /*
-        assertNotNull(new WebDriverWait(driver, 2).until(ExpectedConditions.visibilityOfElementLocated(By.id("id_fname_latin"))));
-        assertNotNull(driver.findElement(By.cssSelector("#id_lname_latin")));
-        assertNotNull(driver.findElement(By.cssSelector("input[name=date_of_birth]")));
-        assertNotNull(driver.findElement(By.cssSelector("#id_gender")));
-        // Выбор страны
-        assertNotNull(driver.findElement(By.cssSelector("div[data-slave-selector*=js-lk-cv-dependent-slave-city]")));
-        //Выбор города
-        //* driver.findElement(By.cssSelector("div[data-selected-option-class=lk-cv-block__select-option_selected]")).click();
-        //* driver.findElement(By.cssSelector("button[title=Москва]")).click();
-        assertNotNull(driver.findElement(By.xpath("//div[2]/div[2]/div/label/div")));
-
-        //Уровень знания английского
-        //     driver.findElement(By.cssSelector("div[data-selected-option-class*=lk-cv-block__select-option_selected]")).click();
-        //     driver.findElement(By.cssSelector("button[title=Продвинутый (Advanced)]")).click();
-        assertEquals("Продвинутый (Advanced)", driver.findElement(By.xpath("//div[3]/div[2]/div/label/div")).getText().toString());
-
-        */
-
-         WebDriverFactory factory = new WebDriverFactory();
-
-        public PrivateDataPage(WebDriver driver) {
+         public PrivateDataPage(WebDriver driver) {
             super(driver);
         }
 

@@ -15,7 +15,6 @@ import java.util.concurrent.TimeUnit;
 public class BaseHooks {
     protected static WebDriver driver;
     protected static ServerConfig cfg = ConfigFactory.create(ServerConfig.class);
-    protected static Logger logger = LogManager.getLogger(BaseHooks.class);
 
     @BeforeClass
     public static void setup() {
