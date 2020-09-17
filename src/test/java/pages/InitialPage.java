@@ -23,8 +23,7 @@ public class InitialPage extends AbstractPage {
        @FindBy(xpath = "//product-card[contains(@product-id,'81933675')]")
        private WebElement cardArticul;
        //private By engButton = By.xpath("//product-card[contains(@product-id,'81933675')]");  //локатор карточки в каталоге
-
-    
+       private String artPrice = cardArticul.getAttribute("product-price").toString();
 
      public InitialPage(WebDriver driver) {
          super(driver);
@@ -39,17 +38,13 @@ public class InitialPage extends AbstractPage {
     }
 
     public InitialPage checkArticul(){
-        String artNumber = cardArticul.getAttribute("product-price").toString();
-
-       assertEquals(artNumber, );
+        String artNumber = cardArticul.getAttribute("product-id").toString();
+        assertEquals("81933675", artNumber);
 
         return this;
     }
 
-    String str2 = driver.findElement(By.xpath("//a[contains(@title,'Смартфон Xiaomi Redmi')]")).getAttribute("title").toString();
-
-
-    public ProfilePage auth(String account, String pass) {
+    public ProfilePage auth(String artPrice) {
         new WebDriverWait(driver,3).until(ExpectedConditions.visibilityOf(accField)).sendKeys(account);
         passField.sendKeys(pass);
         logButton.click();
