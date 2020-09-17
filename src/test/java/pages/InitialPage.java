@@ -12,6 +12,10 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+
 
 public class InitialPage extends AbstractPage {
     private Logger logger = LogManager.getLogger(InitialPage.class);
@@ -33,6 +37,17 @@ public class InitialPage extends AbstractPage {
 
         return this;
     }
+
+    public InitialPage checkArticul(){
+        String artNumber = cardArticul.getAttribute("product-price").toString();
+
+       assertEquals(artNumber, );
+
+        return this;
+    }
+
+    String str2 = driver.findElement(By.xpath("//a[contains(@title,'Смартфон Xiaomi Redmi')]")).getAttribute("title").toString();
+
 
     public ProfilePage auth(String account, String pass) {
         new WebDriverWait(driver,3).until(ExpectedConditions.visibilityOf(accField)).sendKeys(account);
