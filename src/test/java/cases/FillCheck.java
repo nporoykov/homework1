@@ -2,8 +2,7 @@ package cases;
 
 import org.junit.Test;
 import pages.InitialPage;
-import pages.PrivateDataPage;
-import pages.ProfilePage;
+import pages.PdpPage;
 import utils.BaseHooks;
 
 public class FillCheck extends BaseHooks{
@@ -17,8 +16,8 @@ public class FillCheck extends BaseHooks{
                 .auth(cfg.login(), cfg.pass());
 
 
-        ProfilePage profilePage = new ProfilePage(driver);
-        profilePage.openPrivateDataPage(cfg.url2());
+        PdpPage pdpPage = new PdpPage(driver);
+        pdpPage.openPrivateDataPage(cfg.url2());
 
         PrivateDataPage privateDataPage = new PrivateDataPage(driver);
         privateDataPage.assertSurAndName()

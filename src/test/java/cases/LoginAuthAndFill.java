@@ -17,8 +17,8 @@ public class LoginAuthAndFill extends BaseHooks{
                  .auth(cfg.login(), cfg.pass());
 
 
-        ProfilePage profilePage = new ProfilePage(driver);
-        profilePage.openPrivateDataPage(cfg.url2());
+        PdpPage pdpPage = new PdpPage(driver);
+        pdpPage.openPrivateDataPage(cfg.url2());
 
         PrivateDataPage privateDataPage = new PrivateDataPage(driver);
         privateDataPage.putSurAndName("Petr", "Petrov")

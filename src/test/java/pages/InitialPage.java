@@ -4,7 +4,6 @@ package pages;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -20,12 +19,16 @@ import static org.junit.Assert.assertNotNull;
 public class InitialPage extends AbstractPage {
     private Logger logger = LogManager.getLogger(InitialPage.class);
 
-       @FindBy(xpath = "//product-card[contains(@product-id,'81933675')]")
-       private WebElement cardArticul;
-       //private By engButton = By.xpath("//product-card[contains(@product-id,'81933675')]");  //локатор карточки в каталоге
-       private String artPrice = cardArticul.getAttribute("product-price").toString();
+    @FindBy(xpath = "//product-card[contains(@product-id,'81933675')]")
+    private WebElement cardArticul;
 
-     public InitialPage(WebDriver driver) {
+    @FindBy(xpath = "//product-card[contains(@product-id,'81933675')]//a")
+    private WebElement cardArticulClick;
+
+
+    private String artPrice = cardArticul.getAttribute("product-price").toString();
+
+    public InitialPage(WebDriver driver) {
          super(driver);
          PageFactory.initElements(driver, this);
     }
@@ -37,21 +40,19 @@ public class InitialPage extends AbstractPage {
         return this;
     }
 
-    public InitialPage checkArticul(){
+    public InitialPage checkArticulExistance(){
         String artNumber = cardArticul.getAttribute("product-id").toString();
         assertEquals("81933675", artNumber);
 
         return this;
     }
 
-    public ProfilePage auth(String artPrice) {
-        new WebDriverWait(driver,3).until(ExpectedConditions.visibilityOf(accField)).sendKeys(account);
-        passField.sendKeys(pass);
-        logButton.click();
-        logger.info("Залогинились на сайте");
+    public PdpPage clickArticul(){
+        new WebDriverWait(driver,3).until(ExpectedConditions.visibilityOf(cardArticulClick)).click();
 
-        return new ProfilePage(driver);
+        return new PdpPage(driver, artPrice);
     }
+
 }
 
 
