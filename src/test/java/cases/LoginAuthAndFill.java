@@ -1,6 +1,4 @@
 package cases;
-import config.ServerConfig;
-import org.aeonbits.owner.ConfigFactory;
 import org.junit.*;
 import pages.*;
 import utils.*;
@@ -12,9 +10,9 @@ public class LoginAuthAndFill extends BaseHooks{
     @Test
     public void loginAndAuthFill() throws InterruptedException {
      //   WebDriverFactory factory = new WebDriverFactory();
-        LoginPage loginPage = new LoginPage(driver);
+        InitialPage initialPage = new InitialPage(driver);
 
-        loginPage.open(cfg.url())
+        initialPage.open(cfg.url())
                  .clickAuth()
                  .auth(cfg.login(), cfg.pass());
 

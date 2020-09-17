@@ -1,23 +1,18 @@
 package cases;
 
-import config.ServerConfig;
-import org.aeonbits.owner.ConfigFactory;
 import org.junit.Test;
-import org.openqa.selenium.WebDriver;
-import pages.LoginPage;
+import pages.InitialPage;
 import pages.PrivateDataPage;
 import pages.ProfilePage;
 import utils.BaseHooks;
-import utils.WebDriverFactory;
-import utils.WebDriverType;
 
 public class FillCheck extends BaseHooks{
 
     @Test
     public void fillCheck() throws InterruptedException {
-        LoginPage loginPage = new LoginPage(driver);
+        InitialPage initialPage = new InitialPage(driver);
 
-        loginPage.open(cfg.url())
+        initialPage.open(cfg.url())
                 .clickAuth()
                 .auth(cfg.login(), cfg.pass());
 
