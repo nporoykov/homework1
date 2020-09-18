@@ -22,15 +22,8 @@ public class InitialPage extends AbstractPage {
     @FindBy(xpath = "//product-card[contains(@product-id,'81933675')]")
     private WebElement cardArticul;
 
-//(//uc-plp-item-price[@type='main'])[7]
-
-//(//uc-plp-item-price[@type='main'])[7]
-
     @FindBy(xpath = "//product-card[contains(@product-id,'81933675')]//a")
     private WebElement cardArticulClick;
-
-//    @FindBy(xpath = "(//uc-plp-item-price[@type='main'])[7]")
-//    private WebElement cardArticul;
 
     private String artPrice;
 

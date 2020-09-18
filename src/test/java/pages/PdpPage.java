@@ -13,9 +13,6 @@ import static org.junit.Assert.assertEquals;
 public class PdpPage extends AbstractPage {
     private Logger logger = LogManager.getLogger(PdpPage.class);
     private String catalogPrice;
- //   //uc-pdp-price-view/span
- //   @FindBy(xpath = "//meta[contains(@itemprop,'price')]")
- //   private WebElement pdpPrice;
 
     @FindBy(xpath = "//meta[contains(@itemprop,'price')]")
     private WebElement pdpPrice;

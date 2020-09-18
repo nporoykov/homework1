@@ -17,18 +17,6 @@ public class FillCheck extends BaseHooks{
                 .checkPrice();
 
 
-
-    /*    PdpPage pdpPage = new PdpPage(driver);
-        pdpPage.openPrivateDataPage(cfg.url2());
-
-        PrivateDataPage privateDataPage = new PrivateDataPage(driver);
-        privateDataPage.assertSurAndName()
-                       .assertBirth()
-                       .assertGender()
-                       .assertCountry()
-                       .assertCity()
-                       .assertEnglish(); */
-
     }
 
 }
