@@ -22,11 +22,17 @@ public class InitialPage extends AbstractPage {
     @FindBy(xpath = "//product-card[contains(@product-id,'81933675')]")
     private WebElement cardArticul;
 
+//(//uc-plp-item-price[@type='main'])[7]
+
+//(//uc-plp-item-price[@type='main'])[7]
+
     @FindBy(xpath = "//product-card[contains(@product-id,'81933675')]//a")
     private WebElement cardArticulClick;
 
+//    @FindBy(xpath = "(//uc-plp-item-price[@type='main'])[7]")
+//    private WebElement cardArticul;
 
-    private String artPrice = cardArticul.getAttribute("product-price").toString();
+    private String artPrice;
 
     public InitialPage(WebDriver driver) {
          super(driver);
@@ -35,7 +41,8 @@ public class InitialPage extends AbstractPage {
 
     public InitialPage open(String url) {
         driver.get(url);
-        logger.info("Открыта страница "+url);
+        logger.info("Открыта страница https://leroymerlin.ru/catalogue/dveri/");
+        artPrice = cardArticul.getAttribute("product-price").toString();
 
         return this;
     }
@@ -48,7 +55,7 @@ public class InitialPage extends AbstractPage {
     }
 
     public PdpPage clickArticul(){
-        new WebDriverWait(driver,3).until(ExpectedConditions.visibilityOf(cardArticulClick)).click();
+        new WebDriverWait(driver,3).until(ExpectedConditions.visibilityOf(cardArticul)).click();
 
         return new PdpPage(driver, artPrice);
     }

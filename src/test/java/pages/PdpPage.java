@@ -13,9 +13,13 @@ import static org.junit.Assert.assertEquals;
 public class PdpPage extends AbstractPage {
     private Logger logger = LogManager.getLogger(PdpPage.class);
     private String catalogPrice;
+ //   //uc-pdp-price-view/span
+ //   @FindBy(xpath = "//meta[contains(@itemprop,'price')]")
+ //   private WebElement pdpPrice;
 
     @FindBy(xpath = "//meta[contains(@itemprop,'price')]")
     private WebElement pdpPrice;
+
 
     public PdpPage(WebDriver driver, String price) {
         super(driver);
@@ -24,7 +28,7 @@ public class PdpPage extends AbstractPage {
     }
 
    public PdpPage checkPrice(){
-       String price = pdpPrice.getAttribute("content").toString();
+       String price = pdpPrice.getAttribute("content").toString().replaceAll(" ", "");
        assertEquals(catalogPrice, price);
 
        return this;

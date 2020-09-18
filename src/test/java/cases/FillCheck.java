@@ -12,11 +12,13 @@ public class FillCheck extends BaseHooks{
         InitialPage initialPage = new InitialPage(driver);
 
         initialPage.open(cfg.url())
-                .clickAuth()
-                .auth(cfg.login(), cfg.pass());
+                .checkArticulExistance()
+                .clickArticul()
+                .checkPrice();
 
 
-        PdpPage pdpPage = new PdpPage(driver);
+
+    /*    PdpPage pdpPage = new PdpPage(driver);
         pdpPage.openPrivateDataPage(cfg.url2());
 
         PrivateDataPage privateDataPage = new PrivateDataPage(driver);
@@ -25,7 +27,7 @@ public class FillCheck extends BaseHooks{
                        .assertGender()
                        .assertCountry()
                        .assertCity()
-                       .assertEnglish();
+                       .assertEnglish(); */
 
     }
 
