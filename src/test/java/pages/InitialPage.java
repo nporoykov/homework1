@@ -35,7 +35,6 @@ public class InitialPage extends AbstractPage {
     public InitialPage open(String url) {
         driver.get(url);
         logger.info("Открыта страница https://leroymerlin.ru/catalogue/dveri/");
-        artPrice = cardArticul.getAttribute("product-price").toString();
 
         return this;
     }
@@ -43,6 +42,12 @@ public class InitialPage extends AbstractPage {
     public InitialPage checkArticulExistance(){
         String artNumber = cardArticul.getAttribute("product-id").toString();
         assertEquals("81933675", artNumber);
+
+        return this;
+    }
+
+    public InitialPage rememberCatPrice() {
+        artPrice = cardArticul.getAttribute("product-price").toString();
 
         return this;
     }
@@ -56,3 +61,10 @@ public class InitialPage extends AbstractPage {
 }
 
 
+/*
+try{
+            new WebDriverWait(driver,60).until(ExpectedConditions.visibilityOfElementLocated(new By.ByXPath("//span[text()='Да, спасибо']/parent::button"))).click();
+            logger.info("Подтвержден регион");
+        }catch (Exception e){logger.info("Нет выбора региона");}
+
+ */

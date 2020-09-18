@@ -13,6 +13,7 @@ public class FillCheck extends BaseHooks{
 
         initialPage.open(cfg.url())
                 .checkArticulExistance()
+                .rememberCatPrice()
                 .clickArticul()
                 .checkPrice();
 
