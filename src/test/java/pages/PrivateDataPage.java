@@ -1,6 +1,8 @@
 package pages;
 
 import config.ServerConfig;
+import io.qameta.allure.Step;
+import io.qameta.allure.Story;
 import org.aeonbits.owner.ConfigFactory;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -36,6 +38,7 @@ public class PrivateDataPage extends AbstractPage{
             super(driver);
         }
 
+        @Step("Вводим фамилию и имя")
         public PrivateDataPage putSurAndName(String name, String surname){
             new WebDriverWait(driver,10).until(ExpectedConditions.visibilityOfElementLocated(fname)).sendKeys(name);
             driver.findElement(sname).sendKeys(surname);
@@ -44,6 +47,7 @@ public class PrivateDataPage extends AbstractPage{
             return this;
         }
 
+    @Step("Вводим дату рождения")
     public PrivateDataPage putBirth(String date){
         driver.findElement(birth).sendKeys(date);
         logger.info("Заполнили дату рождения");
@@ -51,6 +55,7 @@ public class PrivateDataPage extends AbstractPage{
         return this;
     }
 
+    @Step("Вводим пол")
     public PrivateDataPage putGender(){
         Select dropdown = new Select(driver.findElement(gender));
         dropdown.selectByValue("m");
@@ -59,6 +64,7 @@ public class PrivateDataPage extends AbstractPage{
         return this;
     }
 
+    @Step("Вводим страну")
     public PrivateDataPage putCountry(){
         driver.findElement(countryDiv).click();
         driver.findElement(countryButton).click();
@@ -67,6 +73,7 @@ public class PrivateDataPage extends AbstractPage{
         return this;
     }
 
+    @Step("Вводим город")
     public PrivateDataPage putCity(){
         driver.findElement(cityDiv).click();
         driver.findElement(cityButton).click();
@@ -75,6 +82,7 @@ public class PrivateDataPage extends AbstractPage{
         return this;
     }
 
+    @Step("Вводим уровень английского")
     public PrivateDataPage putEnglish(){
         driver.findElement(engDiv).click();
         driver.findElement(engButton).click();
@@ -83,6 +91,7 @@ public class PrivateDataPage extends AbstractPage{
         return this;
     }
 
+    @Step("Сохраняем страницу")
     public PrivateDataPage savePage(){
         driver.findElement(engButtonCont).click();
         logger.info("Нажали кнопку 'Сохранить'");
@@ -90,6 +99,7 @@ public class PrivateDataPage extends AbstractPage{
         return this;
     }
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    @Story("Проверяем, что поля имя/фамилия заполнены")
     public PrivateDataPage assertSurAndName(){
         assertNotNull(new WebDriverWait(driver, 2).until(ExpectedConditions.visibilityOfElementLocated(fname)));
         assertNotNull(driver.findElement(sname));
@@ -98,6 +108,7 @@ public class PrivateDataPage extends AbstractPage{
         return this;
     }
 
+    @Story("Проверяем, что поле дата рождения заполнено")
     public PrivateDataPage assertBirth(){
         assertNotNull(driver.findElement(birth));
         logger.info("Проверили, что поле дата рождения заполнено");
@@ -105,6 +116,7 @@ public class PrivateDataPage extends AbstractPage{
         return this;
     }
 
+    @Story("Проверяем, что поля пол заполнено")
     public PrivateDataPage assertGender(){
         assertNotNull(driver.findElement(gender));
         logger.info("Проверили, что поле пол заполнено");
@@ -112,6 +124,7 @@ public class PrivateDataPage extends AbstractPage{
         return this;
     }
 
+    @Story("Проверяем, что поля страна заполнено")
     public PrivateDataPage assertCountry(){
         assertNotNull(driver.findElement(countryDiv));
         logger.info("Проверили, что поле страна заполнено");
@@ -119,6 +132,7 @@ public class PrivateDataPage extends AbstractPage{
         return this;
     }
 
+    @Story("Проверяем, что поля город заполнено")
     public PrivateDataPage assertCity(){
         assertNotNull(driver.findElement(cityDiv));
         logger.info("Проверили, что поле город заполнено");
@@ -126,6 +140,7 @@ public class PrivateDataPage extends AbstractPage{
         return this;
     }
 
+    @Story("Проверяем, что значение поля уровень английского соответствует = Продвинутый (Advanced)")
     public PrivateDataPage assertEnglish(){
         assertEquals("Продвинутый (Advanced)", driver.findElement(engDiv).getText().toString());
 

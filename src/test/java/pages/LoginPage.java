@@ -1,6 +1,7 @@
 package pages;
 
 
+import io.qameta.allure.Step;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -34,6 +35,7 @@ public class LoginPage extends AbstractPage {
          PageFactory.initElements(driver, this);
     }
 
+    @Step("Открытие страницу {url}")
     public LoginPage open(String url) {
         driver.get(url);
         logger.info(String.format("Открыта страница %s", url));
@@ -41,6 +43,7 @@ public class LoginPage extends AbstractPage {
         return this;
     }
 
+    @Step("Кликаем на кнопку логина и открывается страница авторизации")
     public LoginPage clickAuth(){
         loginButton.click();
         logger.info("Перешли на подстраницу логина");
@@ -48,6 +51,7 @@ public class LoginPage extends AbstractPage {
         return this;
     }
 
+    @Step("Вводим аккаунт={account} и пароль={pass}")
     public ProfilePage auth(String account, String pass) {
         new WebDriverWait(driver,3).until(ExpectedConditions.visibilityOf(accField)).sendKeys(account);
         passField.sendKeys(pass);

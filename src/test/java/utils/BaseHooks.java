@@ -18,6 +18,7 @@ public class BaseHooks {
     private static Logger logger = LogManager.getLogger(HomeworkTest.class);
     protected static ServerConfig cfg = ConfigFactory.create(ServerConfig.class);
 
+
     @BeforeClass
     public static void setup() {
         driver = WebDriverFactory.createDriver(WebDriverType.FIREFOX);
