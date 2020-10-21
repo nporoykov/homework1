@@ -19,19 +19,26 @@ public class FillCheck extends BaseHooks{
 
         loginPage.open(cfg.url())
                 .clickAuth()
-                .auth(cfg.login(), cfg.pass());
+                .auth(cfg.login(), cfg.pass())
+                .openPrivateDataPage(cfg.url2())
+                .assertSurAndName()
+                .assertBirth()
+                .assertGender()
+                .assertCountry()
+                .assertCity()
+                .assertEnglish();
 
 
-        ProfilePage profilePage = new ProfilePage(driver);
-        profilePage.openPrivateDataPage(cfg.url2());
+      //  ProfilePage profilePage = new ProfilePage(driver);
+      //  profilePage.openPrivateDataPage(cfg.url2());
 
-        PrivateDataPage privateDataPage = new PrivateDataPage(driver);
-        privateDataPage.assertSurAndName()
-                       .assertBirth()
-                       .assertGender()
-                       .assertCountry()
-                       .assertCity()
-                       .assertEnglish();
+//     //   PrivateDataPage privateDataPage = new PrivateDataPage(driver);
+//     //   privateDataPage.assertSurAndName()
+//                       .assertBirth()
+//                       .assertGender()
+//                       .assertCountry()
+//                       .assertCity()
+//                       .assertEnglish();
 
     }
 

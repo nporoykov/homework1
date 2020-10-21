@@ -36,7 +36,7 @@ public class HomeworkTest {
      //   driver = new ChromeDriver();
        driver = new FirefoxDriver();
         //driver = new EdgeDriver();
-        logger.info("Драйвер поднят");
+        logger.info("WebDriver поднят");
       //  driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
 
 

@@ -36,7 +36,7 @@ public class LoginPage extends AbstractPage {
 
     public LoginPage open(String url) {
         driver.get(url);
-        logger.info("Открыта страница "+"https://otus.ru\n");
+        logger.info(String.format("Открыта страница %s", url));
 
         return this;
     }

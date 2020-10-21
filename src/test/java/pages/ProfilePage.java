@@ -11,7 +11,7 @@ public class ProfilePage extends AbstractPage {
 
     public PrivateDataPage openPrivateDataPage(String url) {
         driver.get(url);
-        logger.info("Перешли на страницу https://otus.ru/lk/biography/personal/");
+        logger.info(String.format("Перешли на страницу %s", url));
 
         return new PrivateDataPage(driver);
     }

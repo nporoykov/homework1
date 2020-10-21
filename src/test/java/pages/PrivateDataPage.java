@@ -93,30 +93,35 @@ public class PrivateDataPage extends AbstractPage{
     public PrivateDataPage assertSurAndName(){
         assertNotNull(new WebDriverWait(driver, 2).until(ExpectedConditions.visibilityOfElementLocated(fname)));
         assertNotNull(driver.findElement(sname));
+        logger.info("Проверили, что поля имя/фамилию заполнены");
 
         return this;
     }
 
     public PrivateDataPage assertBirth(){
         assertNotNull(driver.findElement(birth));
+        logger.info("Проверили, что поле дата рождения заполнено");
 
         return this;
     }
 
     public PrivateDataPage assertGender(){
         assertNotNull(driver.findElement(gender));
+        logger.info("Проверили, что поле пол заполнено");
 
         return this;
     }
 
     public PrivateDataPage assertCountry(){
         assertNotNull(driver.findElement(countryDiv));
+        logger.info("Проверили, что поле страна заполнено");
 
         return this;
     }
 
     public PrivateDataPage assertCity(){
         assertNotNull(driver.findElement(cityDiv));
+        logger.info("Проверили, что поле город заполнено");
 
         return this;
     }
