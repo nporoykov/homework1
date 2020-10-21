@@ -2,8 +2,8 @@ package cases;
 
 import config.ServerConfig;
 import org.aeonbits.owner.ConfigFactory;
-import org.junit.Test;
 import org.openqa.selenium.WebDriver;
+import org.testng.annotations.Test;
 import pages.LoginPage;
 import pages.PrivateDataPage;
 import pages.ProfilePage;

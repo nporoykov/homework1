@@ -4,10 +4,11 @@ import config.ServerConfig;
 import org.aeonbits.owner.ConfigFactory;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.junit.After;
-import org.junit.AfterClass;
-import org.junit.BeforeClass;
+
 import org.openqa.selenium.WebDriver;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeClass;
 import pages.HomeworkTest;
 
 import java.util.concurrent.TimeUnit;
@@ -36,7 +37,7 @@ public class BaseHooks {
         }
     }
 
-    @After
+    @AfterMethod
     public void cleanUp() {
         driver.manage().deleteAllCookies();
     }
