@@ -5,10 +5,10 @@ import org.aeonbits.owner.ConfigFactory;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeAll;
 import org.openqa.selenium.WebDriver;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeClass;
 
 import java.util.concurrent.TimeUnit;
 //HomeworkTest.class
@@ -18,7 +18,7 @@ public class BaseHooks {
     protected static ServerConfig cfg = ConfigFactory.create(ServerConfig.class);
 
 
-    @BeforeClass
+    @BeforeAll
     public static void setup() {
         driver = WebDriverFactory.createDriver(WebDriverType.FIREFOX);
         logger.debug("Подняли WebDriver");
@@ -29,7 +29,7 @@ public class BaseHooks {
         }
     }
 
-    @AfterClass
+    @AfterAll
     public static void teardown() {
         if (driver != null) {
             driver.quit();
@@ -37,7 +37,7 @@ public class BaseHooks {
         }
     }
 
-    @AfterMethod
+    @AfterEach
     public void cleanUp() {
         driver.manage().deleteAllCookies();
     }

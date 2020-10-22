@@ -1,9 +1,10 @@
 package pages;
 
 import config.ServerConfig;
+import org.aeonbits.owner.ConfigFactory;
+
 import io.qameta.allure.Step;
 import io.qameta.allure.Story;
-import org.aeonbits.owner.ConfigFactory;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
