@@ -11,10 +11,10 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 
 import java.util.concurrent.TimeUnit;
-
+//HomeworkTest.class
 public class BaseHooks {
     protected static WebDriver driver;
-    private static Logger logger = LogManager.getLogger(HomeworkTest.class);
+    private static Logger logger = LogManager.getLogger();
     protected static ServerConfig cfg = ConfigFactory.create(ServerConfig.class);
 
 
