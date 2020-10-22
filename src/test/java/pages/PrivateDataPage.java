@@ -8,6 +8,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 
+import static org.assertj.core.api.Assertions.*;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -16,7 +17,7 @@ import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import utils.WebDriverFactory;
 
-import static org.junit.Assert.*;
+//import static org.junit.Assert.*;
 
 public class PrivateDataPage extends AbstractPage{
     private Logger logger = LogManager.getLogger(PrivateDataPage.class);
@@ -101,8 +102,8 @@ public class PrivateDataPage extends AbstractPage{
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     @Story("Проверяем, что поля имя/фамилия заполнены")
     public PrivateDataPage assertSurAndName(){
-        assertNotNull(new WebDriverWait(driver, 2).until(ExpectedConditions.visibilityOfElementLocated(fname)));
-        assertNotNull(driver.findElement(sname));
+        assertThat(new WebDriverWait(driver, 2).until(ExpectedConditions.visibilityOfElementLocated(fname))).isNotNull();
+        assertThat(driver.findElement(sname)).isNotNull();
         logger.info("Проверили, что поля имя/фамилию заполнены");
 
         return this;
@@ -110,7 +111,7 @@ public class PrivateDataPage extends AbstractPage{
 
     @Story("Проверяем, что поле дата рождения заполнено")
     public PrivateDataPage assertBirth(){
-        assertNotNull(driver.findElement(birth));
+        assertThat(driver.findElement(birth)).isNotNull();
         logger.info("Проверили, что поле дата рождения заполнено");
 
         return this;
@@ -118,7 +119,7 @@ public class PrivateDataPage extends AbstractPage{
 
     @Story("Проверяем, что поля пол заполнено")
     public PrivateDataPage assertGender(){
-        assertNotNull(driver.findElement(gender));
+        assertThat(driver.findElement(gender)).isNotNull();
         logger.info("Проверили, что поле пол заполнено");
 
         return this;
@@ -126,7 +127,7 @@ public class PrivateDataPage extends AbstractPage{
 
     @Story("Проверяем, что поля страна заполнено")
     public PrivateDataPage assertCountry(){
-        assertNotNull(driver.findElement(countryDiv));
+        assertThat(driver.findElement(countryDiv)).isNotNull();
         logger.info("Проверили, что поле страна заполнено");
 
         return this;
@@ -134,7 +135,7 @@ public class PrivateDataPage extends AbstractPage{
 
     @Story("Проверяем, что поля город заполнено")
     public PrivateDataPage assertCity(){
-        assertNotNull(driver.findElement(cityDiv));
+        assertThat(driver.findElement(cityDiv)).isNotNull();
         logger.info("Проверили, что поле город заполнено");
 
         return this;
@@ -142,7 +143,7 @@ public class PrivateDataPage extends AbstractPage{
 
     @Story("Проверяем, что значение поля уровень английского соответствует = Продвинутый (Advanced)")
     public PrivateDataPage assertEnglish(){
-        assertEquals("Продвинутый (Advanced)", driver.findElement(engDiv).getText().toString());
+        assertThat("Продвинутый (Advanced)").isEqualTo(driver.findElement(engDiv).getText().toString());
 
         return this;
     }
