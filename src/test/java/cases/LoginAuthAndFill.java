@@ -11,9 +11,10 @@ import utils.*;
 
 public class LoginAuthAndFill extends BaseHooks{
 
-    //@Epic("Проверка OTUS")
-    //@Feature("Авторизация и заполнение полей профиля")
+
     @Test
+    @Epic("Проверка OTUS")
+    @Feature("Авторизация и заполнение полей профиля")
     public void loginAndAuthFill() throws InterruptedException {
      //   WebDriverFactory factory = new WebDriverFactory();
         LoginPage loginPage = new LoginPage(driver);
@@ -29,19 +30,6 @@ public class LoginAuthAndFill extends BaseHooks{
                  .putCity()
                  .putEnglish()
                  .savePage();
-
-
-    //    ProfilePage profilePage = new ProfilePage(driver);
-//        profilePage.openPrivateDataPage(cfg.url2());
-//
-//        PrivateDataPage privateDataPage = new PrivateDataPage(driver);
-//        privateDataPage.putSurAndName("Petr", "Petrov")
-//                .putBirth("10.10.1980")
-//                .putGender()
-//                .putCountry()
-//                .putCity()
-//                .putEnglish()
-//                .savePage();
 
     }
 

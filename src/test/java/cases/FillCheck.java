@@ -16,9 +16,10 @@ import utils.WebDriverType;
 
 public class FillCheck extends BaseHooks{
 
-    //@Epic("Проверка OTUS")
-    //@Feature("Авторизация и проверка заполненных полей профиля")
+
     @Test
+    @Epic("Проверка OTUS")
+    @Feature("Авторизация и проверка заполненных полей профиля")
     public void fillCheck() throws InterruptedException {
         LoginPage loginPage = new LoginPage(driver);
 
@@ -32,18 +33,6 @@ public class FillCheck extends BaseHooks{
                 .assertCountry()
                 .assertCity()
                 .assertEnglish();
-
-
-      //  ProfilePage profilePage = new ProfilePage(driver);
-      //  profilePage.openPrivateDataPage(cfg.url2());
-
-//     //   PrivateDataPage privateDataPage = new PrivateDataPage(driver);
-//     //   privateDataPage.assertSurAndName()
-//                       .assertBirth()
-//                       .assertGender()
-//                       .assertCountry()
-//                       .assertCity()
-//                       .assertEnglish();
 
     }
 
