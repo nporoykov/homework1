@@ -1,6 +1,7 @@
 package cases;
 
 import config.ServerConfig;
+import io.qameta.allure.Description;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Story;
@@ -22,6 +23,7 @@ public class FillCheck extends BaseHooks{
     @Epic("Регресс-тесты")
     @Feature("Тестирование otus.ru")
     @Story("Авторизация и проверка заполненных полей профиля")
+    @Description("Test Description: Авторизируемся на сайте Otus.ru и проверяем заполненость полей профиля пользователя")
     public void fillCheck() throws InterruptedException {
         LoginPage loginPage = new LoginPage(driver);
 
