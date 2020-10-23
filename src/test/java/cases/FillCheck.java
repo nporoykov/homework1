@@ -3,6 +3,7 @@ package cases;
 import config.ServerConfig;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
+import io.qameta.allure.Story;
 import org.aeonbits.owner.ConfigFactory;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.WebDriver;
@@ -18,8 +19,9 @@ public class FillCheck extends BaseHooks{
 
 
     @Test
-    @Epic("Проверка OTUS")
-    @Feature("Авторизация и проверка заполненных полей профиля")
+    @Epic("Регресс-тесты")
+    @Feature("Тестирование otus.ru")
+    @Story("Авторизация и проверка заполненных полей профиля")
     public void fillCheck() throws InterruptedException {
         LoginPage loginPage = new LoginPage(driver);
 

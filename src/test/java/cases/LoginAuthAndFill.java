@@ -2,6 +2,7 @@ package cases;
 import config.ServerConfig;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
+import io.qameta.allure.Story;
 import org.aeonbits.owner.ConfigFactory;
 import org.junit.jupiter.api.Test;
 import pages.*;
@@ -13,8 +14,9 @@ public class LoginAuthAndFill extends BaseHooks{
 
 
     @Test
-    @Epic("Проверка OTUS")
-    @Feature("Авторизация и заполнение полей профиля")
+    @Epic("Регресс-тесты")
+    @Feature("Тестирование otus.ru")
+    @Story("Авторизация и заполнение полей профиля")
     public void loginAndAuthFill() throws InterruptedException {
      //   WebDriverFactory factory = new WebDriverFactory();
         LoginPage loginPage = new LoginPage(driver);
